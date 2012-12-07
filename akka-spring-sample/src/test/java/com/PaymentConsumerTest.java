@@ -1,6 +1,7 @@
 package com;
 
 
+import akka.osgi.ActorSystemActivator;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import be.anova.samples.akka.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,18 +26,18 @@ import be.anova.samples.akka.*;
         })
 public class PaymentConsumerTest extends AbstractJUnit4SpringContextTests {
 
-    private PaymentConsumerActor paymentConsumerActor;
+    private ActorSystemActivator actorSystemActivator;
 
     @Before
     public void setUp() {
-        paymentConsumerActor = (PaymentConsumerActor) applicationContext.getBean("paymentConsumerActor");
+        actorSystemActivator = (ActorSystemActivator) applicationContext.getBean("activator");
 
     }
 
     @DirtiesContext
     @Test
     public void testPaymentConsumerActor() {
-        Assert.assertNotNull(paymentConsumerActor);
-        //paymentConsumerActor.preStart();
+        Assert.assertNotNull(actorSystemActivator);
+
     }
 }

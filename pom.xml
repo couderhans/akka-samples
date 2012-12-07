@@ -12,6 +12,7 @@
 	
     <modules>
       <module>akka-spring-sample</module>
+      <module>akka-blueprint-sample</module>
     </modules>
 
     <properties>
